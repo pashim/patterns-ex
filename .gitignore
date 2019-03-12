@@ -2,6 +2,7 @@
 .gradle
 .idea
 gradle
+patterns-ex.iml
 
 # Ignore Gradle build output directory
 build

@@ -3,6 +3,11 @@
  */
 package kz.pashim
 
+import kz.pashim.patterns.structural.factory.AppleGadgetFactory
+import kz.pashim.patterns.structural.factory.MiGadgetFactory
+import kz.pashim.patterns.structural.factory.PhoneVersion
+import java.lang.IllegalArgumentException
+
 class App {
     val greeting: String
         get() {
@@ -11,5 +16,11 @@ class App {
 }
 
 fun main(args: Array<String>) {
-    println(App().greeting)
+    val factory = when (args.first()) {
+        "apple" -> AppleGadgetFactory()
+        "mi" -> MiGadgetFactory()
+        else -> throw IllegalArgumentException()
+    }
+
+    print(factory.createSmartPhone(PhoneVersion.V2).getInfo())
 }
