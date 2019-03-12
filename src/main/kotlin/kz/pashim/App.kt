@@ -22,5 +22,5 @@ fun main(args: Array<String>) {
         else -> throw IllegalArgumentException()
     }
 
-    print(factory.createSmartPhone(PhoneVersion.V2).getInfo())
+    print("${factory.createSmartPhone(PhoneVersion.V2).getInfo()} is ready to use")
 }

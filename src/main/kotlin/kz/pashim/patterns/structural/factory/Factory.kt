@@ -2,6 +2,9 @@ package kz.pashim.patterns.structural.factory
 
 import kz.pashim.data.gadget.*
 import kz.pashim.patterns.structural.abstractFactory.GadgetFactory
+import kz.pashim.patterns.structural.builder.GadgetDirector
+import kz.pashim.patterns.structural.builder.Mi8Builder
+import kz.pashim.patterns.structural.builder.RedmiBuilder
 
 class AppleGadgetFactory: GadgetFactory {
     override fun createSmartPhone(version: PhoneVersion): SmartPhone = IPhone()
@@ -10,12 +13,15 @@ class AppleGadgetFactory: GadgetFactory {
 }
 
 class MiGadgetFactory: GadgetFactory {
-    override fun createSmartPhone(version: PhoneVersion): SmartPhone =
-            when(version) {
-                PhoneVersion.V1 -> MiPhone()
-                PhoneVersion.V2 -> Redmi()
-                else -> throw IllegalArgumentException()
-            }
+    override fun createSmartPhone(version: PhoneVersion): SmartPhone {
+        val smartPhoneBuilder = when (version) {
+            PhoneVersion.V1 -> Mi8Builder()
+            PhoneVersion.V2 -> RedmiBuilder()
+            else -> throw IllegalArgumentException()
+        }
+
+        return GadgetDirector().buildSmartPhone(smartPhoneBuilder)
+    }
 
     override fun createTablet(version: TabletVersion): Tablet = MiPad()
 }
