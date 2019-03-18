@@ -1,4 +1,4 @@
-package kz.pashim.patterns.structural.prototype
+package kz.pashim.patterns.creational.prototype
 
 interface Processor {
     fun getInfo(): String

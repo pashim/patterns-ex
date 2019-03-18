@@ -1,10 +1,10 @@
-package kz.pashim.patterns.structural.builder
+package kz.pashim.patterns.creational.builder
 
 import kz.pashim.data.gadget.MiPhone
 import kz.pashim.data.gadget.Redmi
 import kz.pashim.data.gadget.SmartPhone
-import kz.pashim.patterns.structural.prototype.Processor
-import kz.pashim.patterns.structural.prototype.SnapdragonProcessor
+import kz.pashim.patterns.creational.prototype.Processor
+import kz.pashim.patterns.creational.prototype.SnapdragonProcessor
 
 interface SmartPhoneBuilder {
     fun buildProcessor(): Processor

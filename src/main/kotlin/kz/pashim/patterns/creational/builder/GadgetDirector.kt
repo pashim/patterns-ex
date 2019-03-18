@@ -1,4 +1,4 @@
-package kz.pashim.patterns.structural.builder
+package kz.pashim.patterns.creational.builder
 
 import kz.pashim.data.gadget.SmartPhone
 

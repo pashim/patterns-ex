@@ -3,7 +3,15 @@
  */
 package kz.pashim
 
-import kz.pashim.patterns.structural.singleton.GadgetShop
+import kz.pashim.patterns.behavioral.command.AdditionCommand
+import kz.pashim.patterns.behavioral.command.Calculator
+import kz.pashim.patterns.behavioral.command.Command
+import kz.pashim.patterns.behavioral.command.MultiplicationCommand
+import kz.pashim.patterns.behavioral.observer.SulpakMessageService
+import kz.pashim.patterns.creational.singleton.GadgetShop
+import kz.pashim.patterns.structural.adapter.Delivery
+import kz.pashim.patterns.structural.adapter.ItemAdapter
+import kz.pashim.patterns.structural.flyweight.SulpakService
 
 class App {
     val greeting: String
@@ -14,5 +22,20 @@ class App {
 
 fun main(args: Array<String>) {
     val shop = GadgetShop.instance
-    shop.buySmartPhone(args)
+    val phone = shop.buySmartPhone(args)
+
+    val delivery = Delivery()
+    delivery.deliver(ItemAdapter(phone))
+
+    val sulpakService = SulpakService()
+    sulpakService.buildMultipleKeyboards()
+
+    var command: Command = AdditionCommand(23.2)
+    command.execute()
+    command = MultiplicationCommand(2.0)
+    command.execute()
+    println(Calculator.instance.num)
+
+    val msgService = SulpakMessageService()
+    msgService.sendToSubscribers()
 }

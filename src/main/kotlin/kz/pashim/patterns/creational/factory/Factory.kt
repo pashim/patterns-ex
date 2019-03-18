@@ -1,10 +1,10 @@
-package kz.pashim.patterns.structural.factory
+package kz.pashim.patterns.creational.factory
 
 import kz.pashim.data.gadget.*
-import kz.pashim.patterns.structural.abstractFactory.GadgetFactory
-import kz.pashim.patterns.structural.builder.GadgetDirector
-import kz.pashim.patterns.structural.builder.Mi8Builder
-import kz.pashim.patterns.structural.builder.RedmiBuilder
+import kz.pashim.patterns.creational.abstractFactory.GadgetFactory
+import kz.pashim.patterns.creational.builder.GadgetDirector
+import kz.pashim.patterns.creational.builder.Mi8Builder
+import kz.pashim.patterns.creational.builder.RedmiBuilder
 
 class AppleGadgetFactory: GadgetFactory {
     override fun createSmartPhone(version: PhoneVersion): SmartPhone = IPhone()

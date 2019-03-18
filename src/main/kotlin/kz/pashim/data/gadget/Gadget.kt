@@ -1,6 +1,8 @@
 package kz.pashim.data.gadget
 
-interface SmartPhone {
+interface Gadget
+
+interface SmartPhone: Gadget {
     fun getInfo(): String
 }
 
@@ -19,7 +21,7 @@ class Redmi : MiSmartPhone {
     override fun getInfo(): String = "Xiaomi Redmi"
 }
 
-interface Tablet {
+interface Tablet: Gadget {
     fun getInfo(): String
 }
 
